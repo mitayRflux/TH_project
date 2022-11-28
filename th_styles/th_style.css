@@ -33,13 +33,14 @@ GradientType=1 );
 }
 
 .container{
-  padding-top: 40px;
+  padding: 50px 25px;
 }
 
 .border1{
   border: 2px solid var(--color2);
   border-radius: 7px;
   box-shadow: 0 0 10px var(--color3);
+  padding: 25px;
 }
 
 
@@ -62,10 +63,19 @@ border-color: var(--color4) transparent transparent transparent;
 
 h3,h2{
   font-family: 'Patrick Hand', cursive; 
-  color: var(--color4);
 }
 p{
   font-family: 'Noto Serif', serif;
+}
+
+.btn-th{
+  padding: 20px 35px;
+  color: var(--color4);
+  font-weight: bold;
+}
+.btn-th:hover{
+  background-color: #87413F;
+  color:var(--color3);
 }
 
 /*font-family: 'Patrick Hand', cursive;
