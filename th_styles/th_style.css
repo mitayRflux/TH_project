@@ -40,7 +40,7 @@ GradientType=1 );
   border: 2px solid var(--color2);
   border-radius: 7px;
   box-shadow: 0 0 10px var(--color3);
-  padding: 25px;
+  padding:10px 25px;
 }
 
 
@@ -76,6 +76,10 @@ p{
 .btn-th:hover{
   background-color: #87413F;
   color:var(--color3);
+}
+.seconds{
+  width: 250px;
+  height: 70px;
 }
 
 /*font-family: 'Patrick Hand', cursive;
