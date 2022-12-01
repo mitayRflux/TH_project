@@ -82,6 +82,23 @@ p{
   height: 70px;
 }
 
+.time-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0; 
+}
+.time-list li{
+margin: 10px;
+}
+
+.time-switch{
+  background-color: transparent;
+  padding: 10px 25px;
+}
+
+
 /*font-family: 'Patrick Hand', cursive;
 font-family: 'Noto Serif', serif;
 */
