@@ -48,17 +48,17 @@ function finishGame(){
 }
 
 //получаем случайную координату
-var getRandomNumber = function (size) {
+function getRandomNumber (size) {
   return Math.floor(Math.random() * size);
  };
 //считаем дистанцию до точки на которой клик
-var getDistance = function (event, target) {
+function getDistance (event, target) {
   var diffX = event.offsetX - target.x;
   var diffY = event.offsetY - target.y;
   return Math.sqrt((diffX * diffX) + (diffY * diffY));
  };
  //выводим сообщения
- var getDistanceHint = function (distance) {
+  function getDistanceHint  (distance) {
   if (distance < 10) {
   return "Boiling hot!";
   } else if (distance < 20) {
