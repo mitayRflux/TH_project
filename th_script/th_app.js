@@ -1,7 +1,14 @@
 
+
 const timeList=document.querySelector('#time-list');
 
 const timeSec = document.querySelector('#time');
+
+const map = document.querySelector('#map');
+
+const message = document.querySelector('#message');
+const result = document.querySelector('#result');
+
 let time = 0;
 let  width = 600;
 let  height = 450;
@@ -29,23 +36,38 @@ function startGame(){
   setTime(time);
 }
 
+
 function changTime(){ 
-  if(current===0){ finishGame();}
-  else{
-    let current = --time;
-    if(current<10){current=`0${current}`}
-    setTime(current);
+  let current = --time;
+  if(current<10){
+    current = `0${current}`;
   }
-  startGame();
-}
+  setTime(current);
+  finishGame(current);
+  }
+
 
 function setTime(value){
   timeSec.innerHTML = `00:${value}`;
 }
 
 function finishGame(){
-  
+  if(current===0 && distance > 8){
+    message.innerHTML = `<h1>Неудача!Попроуй ещё!</h1>`;
+  }
 }
+
+map.addEventListener('click', (event)=>{
+  let distance = getDistance(event,target);
+  let hint = getDistanceHint(distance);
+  message.innerHTML = `<h3>${hint}</h3>`;
+  if(distance<8){
+    result.classList.remove('col-md-4');
+    result.classList.add('col-12');
+   message.innerHTML = `<h1>Клад найден за: ${time} секунд!</h1>`;
+  }
+}
+);
 
 //получаем случайную координату
 function getRandomNumber (size) {
@@ -60,21 +82,21 @@ function getDistance (event, target) {
  //выводим сообщения
   function getDistanceHint  (distance) {
   if (distance < 10) {
-  return "Boiling hot!";
+  return "Жарко!";
   } else if (distance < 20) {
-  return "Really hot";
+  return "Очень горячо!";
   } else if (distance < 40) {
-  return "Hot";
+  return "Горячо";
   } else if (distance < 80) {
-  return "Warm";
+  return "Прохладно";
   } else if (distance < 160) {
-  return "Cold";
+  return "Холодно!";
   } else if (distance < 320) {
-  return "Really cold";
+  return "Очень холодно!";
   } else {
-  return "Freezing!";
+  return "Мороз!";
   }
- };
+ }
 
  
 /*
