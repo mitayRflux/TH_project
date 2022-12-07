@@ -32,30 +32,35 @@ timeList.addEventListener('click', (event)=>{
 });
 
 function startGame(){
-  setInterval(changTime,1000);
-  setTime(time);
+ const stopId = setInterval(startTime,1000);
+    setTime(time);
+  }
+
+function startTime(){
+  if(time === 0){
+    finishGame();
+  }else{
+    let current = --time;
+    if (current<10){
+      current = `0${current}`;
+    }
+   setTime(current);  
+  }
 }
-
-
-function changTime(){ 
-  let current = --time;
-  if(current<10){
-    current = `0${current}`;
-  }
-  setTime(current);
-  finishGame(current);
-  }
-
 
 function setTime(value){
   timeSec.innerHTML = `00:${value}`;
 }
 
 function finishGame(){
-  if(current===0 && distance > 8){
-    message.innerHTML = `<h1>Неудача!Попроуй ещё!</h1>`;
+  if(time===0 || distance>8){
+    result.classList.remove('col-md-4');
+    result.classList.add('col-12');
+   message.innerHTML = `<h1>Неудача!Попробуй ещё!</h1>`;
   }
 }
+
+
 
 map.addEventListener('click', (event)=>{
   let distance = getDistance(event,target);
@@ -65,6 +70,7 @@ map.addEventListener('click', (event)=>{
     result.classList.remove('col-md-4');
     result.classList.add('col-12');
    message.innerHTML = `<h1>Клад найден за: ${time} секунд!</h1>`;
+   clearInterval(stopId);
   }
 }
 );
