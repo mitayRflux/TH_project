@@ -12,6 +12,7 @@ const result = document.querySelector('#result');
 let time = 0;
 let  width = 600;
 let  height = 450;
+let stopId;
 //var clicks = 0;
 
 // создаём объект случайной локации цели
@@ -32,7 +33,7 @@ timeList.addEventListener('click', (event)=>{
 });
 
 function startGame(){
- const stopId = setInterval(startTime,1000);
+   stopId = setInterval(startTime,1000);
     setTime(time);
   }
 
@@ -69,7 +70,7 @@ map.addEventListener('click', (event)=>{
   if(distance<8){
     result.classList.remove('col-md-4');
     result.classList.add('col-12');
-   message.innerHTML = `<h1>Клад найден за: ${time} секунд!</h1>`;
+   message.innerHTML = `<h1>Поздравляю!Клад найден!!</h1>`;
    clearInterval(stopId);
   }
 }
