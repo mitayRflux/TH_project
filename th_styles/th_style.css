@@ -33,7 +33,10 @@ GradientType=1 );
 }
 
 .container{
-  padding: 35px 25px;
+  padding: 70px 25px;
+}
+.maps{
+  padding-top: 15px;
 }
 
 .border1{
