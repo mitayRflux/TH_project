@@ -74,7 +74,7 @@ map.addEventListener('click', (event)=>{
     result.classList.add('col-12');
    message.innerHTML = `<h1>Поздравляю!Клад найден!!</h1>`;
    clearInterval(stopId);
-   relInterval(6000);
+   relInterval(3000);
   }
 }
 );
