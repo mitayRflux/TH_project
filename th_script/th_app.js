@@ -22,9 +22,6 @@ let  target = {
  };
  
 
-
-//console.log(timeList);
-
 timeList.addEventListener('click', (event)=>{
   if(event.target.classList.contains('time-switch')){
     time = parseInt(event.target.getAttribute('data-time'));
@@ -58,8 +55,13 @@ function finishGame(){
     result.classList.remove('col-md-4');
     result.classList.add('col-12');
    message.innerHTML = `<h1>Неудача!Попробуй ещё!</h1>`;
+   relInterval(3000);
   }
 }
+function relInterval(time){
+  setInterval(function(){
+  location.reload();
+  }, time);}
 
 
 
@@ -72,6 +74,7 @@ map.addEventListener('click', (event)=>{
     result.classList.add('col-12');
    message.innerHTML = `<h1>Поздравляю!Клад найден!!</h1>`;
    clearInterval(stopId);
+   relInterval(6000);
   }
 }
 );
@@ -85,7 +88,7 @@ function getDistance (event, target) {
   var diffX = event.offsetX - target.x;
   var diffY = event.offsetY - target.y;
   return Math.sqrt((diffX * diffX) + (diffY * diffY));
- };
+ }
  //выводим сообщения
   function getDistanceHint  (distance) {
   if (distance < 10) {
@@ -105,20 +108,3 @@ function getDistance (event, target) {
   }
  }
 
- 
-/*
- $("#map").click(function (event) 
-  clicks++;
-  // Получить расстояние между событием щелчка и целью
-var distance = getDistance(event, target);
-  //Преобразуйте расстояние в подсказку
- var distanceHint = getDistanceHint(distance);
-  // Обновите элемент #distance новой подсказкой
- $("#distance").text(distanceHint);
-  // Если щелчок был достаточно близок, скажите им, что они выиграли
- { if (distance < 8) {
-  alert("Found the treasure in " + clicks + " clicks!");
-  }
- });
- 
-*/
